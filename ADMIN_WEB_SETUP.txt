@@ -1,0 +1,8 @@
+GharSewa Web Admin Panel
+
+Open admin.html in browser after hosting.
+Demo admin code: ADMIN123
+
+This web admin can approve workers, manage customers, bookings, requirements, subscriptions and broadcast demo messages.
+
+Important: Because this is a static frontend project, control works through localStorage on the same browser/domain. For real multi-device admin control, connect frontend + admin to a backend database (Node.js + MongoDB / Firebase / Supabase).

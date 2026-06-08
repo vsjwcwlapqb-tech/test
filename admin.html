@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GharSewa Web Admin</title>
+  <style>
+    :root{--red:#A52A24;--orange:#E6602A;--bg:#f6f7fb;--card:#fff;--text:#241713;--muted:#777;--line:#eaded8;--green:#198754;--blue:#2f5fb3;--purple:#6f42c1;--shadow:0 18px 45px rgba(33,20,15,.10)}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#fff 0%,#fff4ee 50%,#ffe7d6 100%)}
+    .login-card{width:100%;max-width:420px;background:#fff;border-radius:26px;box-shadow:var(--shadow);padding:32px;border:1px solid #f0dfd6;text-align:center}
+    .logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px}.logoIcon{font-size:40px}.brand{font-size:34px;font-weight:950}.brand b{color:var(--orange)}
+    .sub{color:var(--muted);margin:0 0 24px}.input{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:14px;font-size:15px;margin:8px 0 12px;background:#fff}.btn{border:none;border-radius:14px;padding:13px 18px;font-weight:850;font-size:15px;cursor:pointer}.btn-primary{background:linear-gradient(135deg,var(--orange),#ff4b12);color:#fff;width:100%}.err{color:#c82333;font-size:13px;min-height:20px}
+    .app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}.side{background:#fff;border-right:1px solid var(--line);padding:20px;position:sticky;top:0;height:100vh}.side .brand{font-size:24px}.adminTag{font-size:13px;color:var(--muted);margin:2px 0 22px}.nav button{width:100%;border:none;background:transparent;text-align:left;padding:12px 14px;border-radius:14px;margin:4px 0;display:flex;gap:10px;align-items:center;font-weight:800;color:#6b5f5a;cursor:pointer}.nav button.active{background:#fff0e8;color:var(--orange)}.nav .badge{margin-left:auto;background:#c82333;color:#fff;border-radius:99px;padding:2px 8px;font-size:11px}.main{padding:22px 28px 40px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px}.top h1{margin:0;font-size:28px}.top p{margin:4px 0 0;color:var(--muted)}.top-actions{display:flex;gap:10px;align-items:center}.search{min-width:280px;padding:12px 14px;border:1px solid #ddd;border-radius:14px;background:#fff}.logout{background:#fff;border:1px solid #ffd2c2;color:#b73518}.grid{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:14px;margin-bottom:18px}.stat{background:#fff;border-radius:20px;padding:18px;box-shadow:0 8px 25px rgba(0,0,0,.05);border:1px solid #f2e5df}.stat .n{font-size:26px;font-weight:950;color:var(--red)}.stat .l{font-size:13px;color:var(--muted);font-weight:750}.panel{background:#fff;border:1px solid #eee;border-radius:22px;box-shadow:0 10px 28px rgba(0,0,0,.05);overflow:hidden}.panel-head{display:flex;justify-content:space-between;align-items:center;padding:18px 18px;border-bottom:1px solid #f1e7e1}.panel-head h2{font-size:18px;margin:0}.table{width:100%;border-collapse:collapse}.table th{text-align:left;color:#7d716b;font-size:12px;text-transform:uppercase;letter-spacing:.04em;background:#fffaf7}.table td,.table th{padding:14px 16px;border-bottom:1px solid #f2ece8;vertical-align:middle}.pill{border-radius:99px;padding:5px 10px;font-size:12px;font-weight:850;display:inline-flex;align-items:center;gap:5px}.pending{background:#fff3cd;color:#8a5a00}.approved,.active,.completed{background:#e9f8ef;color:#126b35}.rejected,.banned,.cancelled{background:#ffe9e9;color:#a32121}.accepted,.confirmed,.started,.open{background:#e8f1ff;color:#204a9a}.closed{background:#eee;color:#555}.mini{padding:8px 10px;border-radius:10px;border:1px solid #ddd;background:#fff;font-weight:800;cursor:pointer;margin:2px}.mini.green{background:#e9f8ef;color:#126b35;border-color:#b9e7c8}.mini.red{background:#ffe9e9;color:#a32121;border-color:#ffd0d0}.mini.orange{background:#fff0e8;color:#d34c17;border-color:#ffcdb9}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}.card{background:#fff;border:1px solid #eee;border-radius:20px;padding:16px;box-shadow:0 8px 25px rgba(0,0,0,.04)}.card h3{margin:0 0 6px}.muted{color:var(--muted);font-size:13px}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.textarea{width:100%;min-height:110px;border:1px solid #ddd;border-radius:14px;padding:12px;resize:vertical}.hide{display:none!important}@media(max-width:900px){.app{grid-template-columns:1fr}.side{height:auto;position:relative}.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.main{padding:16px}.grid{grid-template-columns:repeat(2,1fr)}.top{flex-direction:column;align-items:flex-start}.search{min-width:0;width:100%}.top-actions{width:100%;flex-direction:column}.top-actions>*{width:100%}.table{font-size:13px}.table td,.table th{padding:10px 8px}}
+  </style>
+</head>
+<body>
+  <div id="login" class="login">
+    <div class="login-card">
+      <div class="logo"><div class="logoIcon">🏠</div><div class="brand">Ghar<b>Sewa</b></div></div>
+      <p class="sub">Web Admin Control Panel</p>
+      <input id="code" class="input" placeholder="Admin code" type="password" />
+      <button class="btn btn-primary" onclick="login()">Enter Admin Panel</button>
+      <div id="err" class="err"></div>
+      <p class="muted">Demo code: <b>ADMIN123</b></p>
+    </div>
+  </div>
+  <div id="app" class="app hide">
+    <aside class="side">
+      <div class="logo" style="justify-content:flex-start"><div class="logoIcon">🏠</div><div class="brand">Ghar<b>Sewa</b></div></div>
+      <div class="adminTag">Web Control Panel</div>
+      <nav class="nav" id="nav"></nav>
+    </aside>
+    <main class="main">
+      <div class="top">
+        <div><h1 id="title">Dashboard</h1><p id="subtitle">Control customers, workers, bookings and app data from web.</p></div>
+        <div class="top-actions"><input id="search" class="search" placeholder="Search name, phone, booking..." oninput="render()"/><button class="btn logout" onclick="logout()">Logout</button></div>
+      </div>
+      <section id="content"></section>
+    </main>
+  </div>
+<script>
+const ADMIN_CODE='ADMIN123';
+const $=id=>document.getElementById(id);
+const read=(k,d=[])=>{try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(d))}catch(e){return d}};
+const write=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+const fmt=n=>'NPR '+Number(n||0).toLocaleString();
+const today=()=>new Date().toISOString();
+const esc=s=>String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+let page='dashboard';
+const pages=[['dashboard','📊','Dashboard'],['workers','🧑‍🔧','Workers'],['customers','👥','Customers'],['bookings','📋','Bookings'],['requirements','📢','Requirements'],['subscriptions','💳','Subscriptions'],['broadcast','📣','Broadcast'],['settings','⚙️','Settings']];
+function login(){ if($('code').value.trim()===ADMIN_CODE){localStorage.setItem('g8_web_admin','true');localStorage.setItem('g8_admin','true');$('login').classList.add('hide');$('app').classList.remove('hide');init();} else {$('err').textContent='Wrong admin code';}}
+function logout(){localStorage.setItem('g8_web_admin','false');localStorage.setItem('g8_admin','false');location.reload();}
+function init(){renderNav();render();}
+function renderNav(){ const counts=getCounts(); $('nav').innerHTML=pages.map(([id,ic,l])=>`<button class="${page===id?'active':''}" onclick="page='${id}';renderNav();render()"><span>${ic}</span>${l}${counts[id]?`<span class="badge">${counts[id]}</span>`:''}</button>`).join('');}
+function getData(){
+ const apps=read('g8_worker_apps',[]); const customers=read('g8_admin_customers',[]); const bookings=[...read('g8_admin_bookings',[]),...read('g8_admin_rentals',[])]; const reqs=read('g8_requirements',[]); const subs=read('g8_admin_customer_subscriptions',[]);
+ return {apps,customers,bookings,reqs,subs};
+}
+function getCounts(){const d=getData();return {workers:d.apps.filter(x=>x.status==='pending').length,bookings:d.bookings.filter(x=>!['completed','cancelled'].includes(x.status)).length,requirements:d.reqs.filter(x=>x.status!=='closed'&&x.status!=='completed').length,subscriptions:d.subs.length};}
+function match(obj){const q=$('search')?.value?.toLowerCase().trim()||''; if(!q)return true; return JSON.stringify(obj).toLowerCase().includes(q);}
+function setTitle(t,s){$('title').textContent=t;$('subtitle').textContent=s;}
+function render(){renderNav(); const d=getData(); const c=$('content');
+ if(page==='dashboard') return dashboard(c,d);
+ if(page==='workers') return workers(c,d);
+ if(page==='customers') return customers(c,d);
+ if(page==='bookings') return bookings(c,d);
+ if(page==='requirements') return requirements(c,d);
+ if(page==='subscriptions') return subscriptions(c,d);
+ if(page==='broadcast') return broadcast(c,d);
+ if(page==='settings') return settings(c,d);
+}
+function dashboard(c,d){setTitle('Dashboard','Live overview from the app local database.'); const revenue=d.bookings.reduce((s,b)=>s+Number(b.amt||0),0); const comm=d.bookings.reduce((s,b)=>s+Number(b.comm||Math.round((b.amt||0)*.1)),0); c.innerHTML=`<div class="grid">
+ <div class="stat"><div class="n">${d.customers.length}</div><div class="l">Customers</div></div><div class="stat"><div class="n">${d.apps.length}</div><div class="l">Workers</div></div><div class="stat"><div class="n">${d.bookings.length}</div><div class="l">Bookings</div></div><div class="stat"><div class="n">${fmt(revenue)}</div><div class="l">Total GMV</div></div></div>
+ <div class="grid"><div class="stat"><div class="n">${d.apps.filter(x=>x.status==='pending').length}</div><div class="l">Pending Workers</div></div><div class="stat"><div class="n">${d.reqs.length}</div><div class="l">Requirements</div></div><div class="stat"><div class="n">${fmt(comm)}</div><div class="l">Commission</div></div><div class="stat"><div class="n">${d.subs.length}</div><div class="l">Subscriptions</div></div></div>
+ ${recentBookings(d)}`;}
+function recentBookings(d){return `<div class="panel"><div class="panel-head"><h2>Recent Bookings</h2><button class="mini orange" onclick="page='bookings';renderNav();render()">View all</button></div>${bookingTable(d.bookings.slice(0,8))}</div>`}
+function status(s){return `<span class="pill ${String(s||'open').toLowerCase()}">${esc(s||'open')}</span>`}
+function bookingTable(arr){return `<table class="table"><thead><tr><th>ID</th><th>Customer</th><th>Worker/Service</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody>${arr.filter(match).map(b=>`<tr><td><b>${esc(b.id)}</b><br><span class="muted">${esc((b.type||'service'))}</span></td><td>${esc(b.cust||'Customer')}<br><span class="muted">${esc(b.custPh||'')}</span></td><td>${esc(b.prov||'Worker')}<br><span class="muted">${esc(b.svc||'')}</span></td><td><b>${fmt(b.amt)}</b><br><span class="muted">Comm ${fmt(b.comm||Math.round((b.amt||0)*.1))}</span></td><td>${status(b.status)}</td><td><button class="mini green" onclick="updateBooking('${esc(b.id)}','completed')">Complete</button><button class="mini red" onclick="updateBooking('${esc(b.id)}','cancelled')">Cancel</button></td></tr>`).join('')||`<tr><td colspan="6" class="muted">No bookings found.</td></tr>`}</tbody></table>`}
+function updateBooking(id,st){['g8_admin_bookings','g8_admin_rentals','g8_bks','g8_rbks'].forEach(k=>{const arr=read(k,[]); if(arr.length)write(k,arr.map(x=>x.id===id?{...x,status:st,adminUpdatedAt:today()}:x));}); render();}
+function workers(c,d){setTitle('Workers','Approve, reject, verify and manage worker accounts.'); const rows=d.apps.filter(match); c.innerHTML=`<div class="panel"><div class="panel-head"><h2>Worker Applications</h2><span class="muted">${rows.length} workers</span></div><table class="table"><thead><tr><th>Worker</th><th>Service</th><th>Plan</th><th>Status</th><th>Actions</th></tr></thead><tbody>${rows.map(w=>`<tr><td><b>${esc(w.name)}</b><br><span class="muted">${esc(w.phone||'')} · ${esc(w.email||'')}</span></td><td>${esc(w.service||((w.services||[])[0])||'')}<br><span class="muted">${esc(w.area||'Kathmandu')} · ${esc(w.exp||'')}</span></td><td>${esc(w.plan||'standard')}<br><span class="muted">${fmt(w.price||1000)}</span></td><td>${status(w.status||'pending')}</td><td><button class="mini green" onclick="workerStatus('${esc(w.id)}','approved')">Approve</button><button class="mini orange" onclick="workerStatus('${esc(w.id)}','pending')">Pending</button><button class="mini red" onclick="workerStatus('${esc(w.id)}','rejected')">Reject</button></td></tr>`).join('')||`<tr><td colspan="5" class="muted">No workers found.</td></tr>`}</tbody></table></div>`;}
+function workerStatus(id,st){const apps=read('g8_worker_apps',[]).map(w=>w.id===id?{...w,status:st,approvedAt:st==='approved'?today():w.approvedAt}:w);write('g8_worker_apps',apps);render();}
+function customers(c,d){setTitle('Customers','View customer accounts and ban/unban users.'); const rows=d.customers.filter(match); c.innerHTML=`<div class="panel"><div class="panel-head"><h2>Customers</h2><span class="muted">${rows.length} customers</span></div><table class="table"><thead><tr><th>Name</th><th>Phone</th><th>Bookings</th><th>Status</th><th>Actions</th></tr></thead><tbody>${rows.map(u=>`<tr><td><b>${esc(u.name)}</b><br><span class="muted">${esc(u.address||'Kathmandu')}</span></td><td>${esc(u.phone)}</td><td>${u.bks||0}<br><span class="muted">${esc(u.lastBooking||'')}</span></td><td>${status(u.status||'active')}</td><td><button class="mini red" onclick="customerBan('${esc(u.phone)}')">${u.status==='banned'?'Unban':'Ban'}</button></td></tr>`).join('')||`<tr><td colspan="5" class="muted">No customers found.</td></tr>`}</tbody></table></div>`;}
+function customerBan(phone){const arr=read('g8_admin_customers',[]).map(u=>u.phone===phone?{...u,status:u.status==='banned'?'active':'banned'}:u);write('g8_admin_customers',arr);render();}
+function bookings(c,d){setTitle('Bookings','Control booking and rental statuses.'); c.innerHTML=`<div class="panel"><div class="panel-head"><h2>All Bookings</h2><span class="muted">${d.bookings.filter(match).length} records</span></div>${bookingTable(d.bookings)}</div>`;}
+function requirements(c,d){setTitle('Requirements','Track customer posted requirements and worker offers.'); const rows=d.reqs.filter(match); c.innerHTML=`<div class="cards">${rows.map(r=>`<div class="card"><div class="row"><h3>${esc(r.title||r.service||'Requirement')}</h3>${status(r.status||'open')}</div><p class="muted">${esc(r.description||r.note||'')}</p>${r.image?`<img src="${r.image}" style="width:100%;max-height:160px;object-fit:cover;border-radius:14px;margin:8px 0"/>`:''}<div class="muted">📍 ${esc(r.location||'Kathmandu')} · Budget ${fmt(r.budget||0)}</div><div class="muted">Customer: ${esc(r.customer||'Customer')} · Offers: ${(r.offers||[]).length}</div><div style="margin-top:12px"><button class="mini green" onclick="reqStatus('${esc(r.id)}','completed')">Complete</button><button class="mini red" onclick="reqStatus('${esc(r.id)}','closed')">Close</button></div></div>`).join('')||`<div class="card muted">No requirements found.</div>`}</div>`;}
+function reqStatus(id,st){write('g8_requirements',read('g8_requirements',[]).map(r=>r.id===id?{...r,status:st,adminUpdatedAt:today()}:r));render();}
+function subscriptions(c,d){setTitle('Subscriptions','Manage customer and worker plan records.'); const rows=d.subs.filter(match); c.innerHTML=`<div class="panel"><div class="panel-head"><h2>Customer Subscriptions</h2><span class="muted">${rows.length} active</span></div><table class="table"><thead><tr><th>Customer</th><th>Plan</th><th>Amount</th><th>Gateway</th><th>Status</th></tr></thead><tbody>${rows.map(s=>`<tr><td><b>${esc(s.customer)}</b><br><span class="muted">${esc(s.phone)}</span></td><td>${esc(s.planName||s.plan)}</td><td><b>${fmt(s.amount)}</b></td><td>${esc(s.gateway||'')}</td><td>${status(s.status||'active')}<br><span class="muted">Expires ${esc(s.expires||'—')}</span></td></tr>`).join('')||`<tr><td colspan="5" class="muted">No subscriptions found.</td></tr>`}</tbody></table></div>`;}
+function broadcast(c,d){setTitle('Broadcast','Send demo notification/SMS message to app users.'); c.innerHTML=`<div class="panel"><div class="panel-head"><h2>Broadcast Message</h2></div><div style="padding:18px"><div class="form-grid"><input id="bcTitle" class="input" placeholder="Title"><select id="bcTarget" class="input"><option value="all">All users</option><option value="customers">Customers</option><option value="workers">Workers</option></select></div><textarea id="bcBody" class="textarea" placeholder="Message body"></textarea><button class="btn btn-primary" style="margin-top:10px;max-width:260px" onclick="sendBroadcast()">Send Broadcast</button><p class="muted">This stores message in <b>g8_admin_broadcasts</b> for the app to read later.</p></div></div>`;}
+function sendBroadcast(){const msg={id:'BC-'+Date.now(),title:$('bcTitle').value||'GharSewa Notice',body:$('bcBody').value||'',target:$('bcTarget').value,createdAt:today(),read:false};write('g8_admin_broadcasts',[msg,...read('g8_admin_broadcasts',[])]);alert('Broadcast saved.');}
+function settings(c,d){setTitle('Settings','Web admin connection information.'); c.innerHTML=`<div class="panel"><div class="panel-head"><h2>How this controls the app</h2></div><div style="padding:18px;line-height:1.7"><p>This web admin reads and writes the same browser storage keys used by the GharSewa app.</p><p><b>Important:</b> For real control from different devices, connect this to a backend database such as MongoDB/Firebase/Supabase. LocalStorage works only on the same browser/domain.</p><button class="mini red" onclick="if(confirm('Clear demo app data?')){localStorage.clear();location.reload()}">Clear Demo Data</button></div></div>`;}
+if(localStorage.getItem('g8_web_admin')==='true'){ $('login').classList.add('hide');$('app').classList.remove('hide');init(); }
+</script>
+</body>
+</html>

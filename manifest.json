@@ -1,0 +1,10 @@
+{
+  "name": "GharSewa",
+  "short_name": "GharSewa",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#A52A24",
+  "orientation": "portrait-primary",
+  "icons": []
+}
